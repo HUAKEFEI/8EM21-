@@ -1,15 +1,10 @@
 import rospy
 from std_msgs.msg import Float64MultiArray
 
+
 def talker():
-
-
-
-
     pub = rospy.Publisher('youbot_base/joints_vel_controller/command', Float64MultiArray, queue_size=10)
-
     rospy.init_node('pubListener', anonymous=False)
-
     rate = rospy.Rate(10) # 10hz
 
     ay = 0.33
@@ -18,6 +13,8 @@ def talker():
     v = 0.8
     r = 1
     w = v / r
+    vy = 0
+    vx = 0
 
     kp = 0.8
     ki = 0.1
@@ -41,7 +38,6 @@ def talker():
 
         linear_vel_x = kp * error_x + ki * error_sum_x + kd * delta_error_x #Скорость линии x
         linear_vel_y = kp * error_y + ki * error_sum_y + kd * delta_error_y #Скорость линии y
-
         angular_vel = w  # Угловая скорость
 
         # 计算各个轮子的转速	Рассчитаем скорость каждого колеса.
