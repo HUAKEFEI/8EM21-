@@ -13,7 +13,8 @@ def talker():
     R = 0.05
     ay = 0.33
     ax = 0.15
-    w = v / R
+    r = 1
+    w = v / r
 
     while not rospy.is_shutdown():
         # 计算各个轮子的转速 Рассчитаем скорость каждого колеса.
