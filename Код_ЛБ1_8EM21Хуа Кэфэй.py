@@ -7,7 +7,7 @@ def talker():
     rospy.init_node('pubListener', anonymous=False)
     rate = rospy.Rate(10)  # 10hz
 
-    v = 0.1
+    v = 0.6
     vy = 0
     vx = 0
     R = 0.05
@@ -16,7 +16,7 @@ def talker():
     w = v / R
 
     while not rospy.is_shutdown():
-        # 计算各个轮子的转速	Рассчитаем скорость каждого колеса.
+        # 计算各个轮子的转速 Рассчитаем скорость каждого колеса.
         # Мы используем только два колеса.
         f1_t = 0
         f2_t = 1 / R * (-vx + vy) + w * (ax + ay)
